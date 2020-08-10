@@ -14,6 +14,7 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/myStyles.css">
   <style>
     html,
     body {
@@ -39,22 +40,30 @@
   </style>
 </head>
 
-<body class="text-center">
-<div>
-      <form class="px-4 py-3">
+<body class="center_grid">
+  <div>
+
+    <form class="login_grid">
+      <img src="img/login_img.jpg" class="img-fluid" alt="logo ceibal">
+      <div style="margin: 0rem 5rem 0rem 5rem">
         <div class="form-group">
-          <label for="exampleDropdownFormEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+          <label for="exampleDropdownFormEmail1">E-mail</label>
+          <div>
+            <input required type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@ejemplo.com" >
+          </div>
+
         </div>
         <div class="form-group">
-          <label for="exampleDropdownFormPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+          <label for="exampleDropdownFormPassword1">Contraseña</label>
+          <input required type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </form>
-    </div>
+        <button id="btn_login" type="submit" class="btn btn-secondary">Ingresar</button>
+      </div>
+    </form>
+  </div>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
+  
 </body>
 
 </html>

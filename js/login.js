@@ -4,3 +4,8 @@
 document.addEventListener("DOMContentLoaded", function(e){
 
 });
+
+document.getElementById("btn_login").addEventListener("click", function(){
+    console.log("aprete boton");
+    document.location.href="index.html"
+})
