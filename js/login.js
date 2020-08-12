@@ -1,11 +1,15 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function (e) {
 
+   var formulario = document.getElementById("form_login");
+   formulario.addEventListener("submit", function (event) {
+      event.preventDefault();//Cortamos el procedimiento usual de un submit
+      loginOk();
+   })
+   
 });
 
-document.getElementById("btn_login").addEventListener("click", function(){
-    console.log("aprete boton");
-    document.location.href="index.html"
-})
+
+function loginOk() { //creamos un objeto que indique que el proceso fue correcto y enviamos a pagina de inicio
+   localStorage.setItem('login', 'ok');
+   document.location.href = "index.html";
+}

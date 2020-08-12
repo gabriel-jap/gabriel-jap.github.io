@@ -1,0 +1,18 @@
+.center_grid{
+    padding-top: 3rem;
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+}
+
+.login_grid{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+}
+
+.login{
+    width: auto;
+    padding: 10%;
+    background-color: #d43c59;
+}

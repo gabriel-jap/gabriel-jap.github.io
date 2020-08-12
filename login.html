@@ -6,63 +6,40 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta charset="utf-8"> <!-- Creado-->
+  <meta charset="utf-8"> <!-- Creado-->  
   <title>eMercado - Todo lo que busques está aquí</title>
-
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/myStyles.css">
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>
-</head>
+  <link rel="stylesheet" href="css/login.css">
+  <script src="js/login.js"></script>
+  </head>
 
 <body class="center_grid">
   <div>
 
-    <form class="login_grid">
+    <form id="form_login" class="login_grid">
+      
       <img src="img/login_img.jpg" class="img-fluid" alt="logo ceibal">
+      
       <div style="margin: 0rem 5rem 0rem 5rem">
-        <div class="form-group">
-          <label for="exampleDropdownFormEmail1">E-mail</label>
-          <div>
-            <input required type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@ejemplo.com" >
-          </div>
 
+        <div class="form-group">
+          <label for="textboxEmail">E-mail</label>
+          <input type="email" class="form-control" id="textboxEmail" placeholder="email@ejemplo.com" required>
         </div>
+
         <div class="form-group">
           <label for="exampleDropdownFormPassword1">Contraseña</label>
-          <input required type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
+          <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" required>
         </div>
         <button id="btn_login" type="submit" class="btn btn-secondary">Ingresar</button>
       </div>
-    </form>
-  </div>
-  <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
+      </form>
+
+  </div>  
   
 </body>
 
