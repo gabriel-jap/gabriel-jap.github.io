@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta charset="utf-8"> <!-- Creado-->  
+  <meta charset="utf-8"> <!-- Creado-->
   <title>eMercado - Todo lo que busques está aquí</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <!-- Bootstrap core CSS -->
@@ -15,15 +15,22 @@
   <link rel="stylesheet" href="css/myStyles.css">
   <link rel="stylesheet" href="css/login.css">
   <script src="js/login.js"></script>
-  </head>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- <meta name="google-signin-scope" content="https://www.googleapis.com/auth/userinfo.email"> -->
+  <meta name="google-signin-client_id" content="102020356259-titp2r74v0rh37mrv88f1cjru31krsv2.apps.googleusercontent.com">
+  
+
+</head>
 
 <body class="center_grid">
   <div>
 
     <form id="form_login" class="login_grid">
-      
+
       <img src="img/login_img.jpg" class="img-fluid" alt="logo ceibal">
-      
+
       <div style="margin: 0rem 5rem 0rem 5rem">
 
         <div class="form-group">
@@ -33,14 +40,16 @@
 
         <div class="form-group">
           <label for="exampleDropdownFormPassword1">Contraseña</label>
-          <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" required>
+          <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña"
+            required>
         </div>
         <button id="btn_login" type="submit" class="btn btn-secondary">Ingresar</button>
       </div>
-      </form>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </form>
 
-  </div>  
-  
+  </div>
+
 </body>
 
 </html>
