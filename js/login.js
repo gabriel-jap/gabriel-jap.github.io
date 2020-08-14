@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function loginOk() { //creamos un objeto que indique que el proceso fue correcto y enviamos a pagina de inicio
    localStorage.setItem('login', 'ok');
-   document.location.href = "index.html";
+   document.location.href = "https://gabriel-jap.github.io/index.html";
 }
 
 function onSignIn(googleUser){
