@@ -16,7 +16,7 @@ function loginOk() { //creamos un objeto que indique que el proceso fue correcto
    document.location.href = "https://gabriel-jap.github.io/index.html";
 }
 
-function onSignIn(){
+function onSignIn(googleUser){
    var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
         console.log('Full Name: ' + profile.getName());
