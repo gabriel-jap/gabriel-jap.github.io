@@ -13,3 +13,9 @@ function loginOk() { //creamos un objeto que indique que el proceso fue correcto
    localStorage.setItem('login', 'ok');
    document.location.href = "index.html";
 }
+
+function onSignIn(googleUser){
+   var profile = googleUser.getBasicProfile();
+   console.log(profile);
+   loginOk();
+}
