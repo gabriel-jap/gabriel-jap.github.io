@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // window.onload = () => {
         let token =localStorage.getItem('token');
-        console.log("Reciví "+token )
+        alert("Reciví "+token )
         if (!token) {
             console.log("hmm")
             document.location.href = "login.html";
