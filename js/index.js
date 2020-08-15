@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         localStorage.clear();
     }
 
-    window.onload = () => {
+    // window.onload = () => {
         let token =localStorage.getItem('token');
         console.log("Reciví "+token )
         if (!token) {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }else{
             console.log("no")
         }
-    }
+    //}
 
     
 
