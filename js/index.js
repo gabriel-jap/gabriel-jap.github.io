@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let token =localStorage.getItem('token');
         let google = localStorage.getItem('oauth2_ss::https://gabriel-jap.github.io::1::DEFAULT::_ss_')
         alert("Reciví "+token )
-        if ((!token)||(!google)) {
-            console.log("hmm")
+        if ((!google)) {
+            console.log("no hay google")
             document.location.href = "login.html";
         }else{
-            console.log("no")
+            console.log("estoy en inicio")
         }
     //}
 
