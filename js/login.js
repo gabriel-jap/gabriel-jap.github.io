@@ -31,16 +31,6 @@ getJSONData('/auth', {user,password});
    });
    }
 
-   
-   function loginOk() { //creamos un objeto que indique que el proceso fue correcto y enviamos a pagina de inicio
-      console.log("loginOk")
-      localStorage.setItem('token', 'google');
-      document.location.href = "https://gabriel-jap.github.io/index.html";
-   }
-   
-   
-
-
 });
 
 
