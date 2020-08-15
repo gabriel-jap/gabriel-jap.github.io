@@ -16,7 +16,7 @@ getJSONData('/auth', {user,password});
    // })
    const getJSONData = function(endpoint, userData){
    let url = `${backUrl}${endpoint}`;
-   console.log(url, {method: 'POST',body: JSON.stringify(userData),headers:{'Content-Type': 'application/json'}})
+   console.log(get JSON Data ok)
    fetch(url, {
    method: 'POST',
    body: JSON.stringify(userData),
@@ -28,7 +28,7 @@ getJSONData('/auth', {user,password});
    .then(response => {
    console.log('Success:', response)
    localStorage.setItem('token', response.token);
-   window.location.href = '/';
+   window.location.href = '/index.html';
    });
    }
 
