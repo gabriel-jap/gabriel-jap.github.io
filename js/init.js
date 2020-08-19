@@ -45,6 +45,7 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
   const salida = document.getElementById('logoutButton');
+  document.getElementById('bttnuser').innerText=localStorage.getItem('user')
   salida.onclick = () => {
     localStorage.clear();
     console.log("logout")

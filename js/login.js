@@ -27,6 +27,7 @@ getJSONData('/auth', {user,password});
    .then(response => {
    console.log('Success:', response)
    localStorage.setItem('token', response.token);
+   localStorage.setItem('user', user);
    window.location.href = 'https://gabriel-jap.github.io/index.html';
    });
    }
