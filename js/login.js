@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (e) {
 
-   const user = "";
+   let user = "";
 
    const backUrl = 'http://localhost:8080';
 const loginForm = document.getElementById('form_login');
