@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function (e) {
 
+   const user = "";
+
    const backUrl = 'http://localhost:8080';
 const loginForm = document.getElementById('form_login');
 loginForm.onsubmit = (e) => {
 e.preventDefault()
-const user = document.getElementById('textboxEmail').value;
+user = document.getElementById('textboxEmail').value;
 const password = document.getElementById('textboxPassword').value;
 getJSONData('/auth', {user,password});
 }
