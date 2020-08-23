@@ -41,8 +41,8 @@ function showProductsList() {
              `
         }
 
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
-    }
+       
+    }document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
 }
 
 function sortAndShowProducts(sortCriteria, ProductsArray) {
@@ -55,7 +55,6 @@ function sortAndShowProducts(sortCriteria, ProductsArray) {
     }
 
     currentProductsArray = sortArrays(currentSortCriteria, currentProductsArray);
-
     showProductsList();
 }
 
@@ -91,8 +90,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function () {
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
@@ -119,7 +117,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
         } else {
             let filtrado = fulllist.filter(ele => ele.name.includes(buscador.value) || ele.description.includes(buscador.value));
             
-            sortAndShowProducts(undefined, filtrado)           
+                sortAndShowProducts(undefined, filtrado)
+            
+            
         }
     })
 });
