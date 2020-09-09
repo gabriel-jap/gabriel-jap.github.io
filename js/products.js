@@ -41,8 +41,8 @@ function showProductsList() {
              `
         }
 
-       
-    }document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+
+    } document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
 }
 
 function sortAndShowProducts(sortCriteria, ProductsArray) {
@@ -62,7 +62,7 @@ function sortAndShowProducts(sortCriteria, ProductsArray) {
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            fulllist=resultObj.data;
+            fulllist = resultObj.data;
             sortAndShowProducts(ORDER_ASC_BY_PRICE, fulllist);
         }
     });
@@ -112,15 +112,19 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     buscador.addEventListener("keyup", function () {
-        if (buscador.value==="") {
-            sortAndShowProducts( undefined, fulllist);
+        let searchtext = buscador.value
+        if (searchtext === "") {
+            sortAndShowProducts(undefined, fulllist);
         } else {
-            let filtrado = fulllist.filter(ele => ele.name.includes(buscador.value) || ele.description.includes(buscador.value));
-            
-                sortAndShowProducts(undefined, filtrado)
-            
-            
+            let filtrado = fulllist.filter(ele => ele.name.toLowerCase().includes(searchtext.toLowerCase()) || ele.description.includes(searchtext.toLowerCase()));
+
+            sortAndShowProducts(undefined, filtrado)
+
+
         }
+    })
+    buscador.addEventListener("search",function(event){
+        sortAndShowProducts(undefined, fulllist)
     })
 });
 
