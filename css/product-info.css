@@ -37,7 +37,7 @@
   padding-top: 1rem;
 }
 
-/* http://w3.unpocodetodo.info/css3/estrellas.php */
+/* http://w3.unpocodetodo.info/css3/estrellas.php Estrellas del form*/
 input[type="radio"] {
   display: none;
 }
@@ -60,3 +60,4 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
+/* Fin de las estrellas del form */
