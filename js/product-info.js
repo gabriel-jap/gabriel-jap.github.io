@@ -9,7 +9,7 @@ const comentarios = document.getElementById("coments")
 const form = document.getElementById("form-comment")
 let formText = document.getElementById("comentario")
 let radios = document.getElementsByName("score")
-
+let obj
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
