@@ -10,8 +10,18 @@ const form = document.getElementById("form-comment")
 let formText = document.getElementById("comentario")
 let radios = document.getElementsByName("score")
 let obj
+let rel
+let comments
 
 document.addEventListener("DOMContentLoaded", function (e) {
+
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            comments = resultObj.data;
+            showComments()
+        }
+    });
+
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             obj = resultObj.data;
@@ -32,18 +42,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             categories.innerHTML = obj.category + "→" //ruta (categoria)
 
-            obj.relatedProducts.forEach(element => {//productos relacionados 
-                relacionados.innerHTML += '<div class="col-md-4"><a class="card mb-4 shadow-sm custom-card"><img src=img/car' + element + '.jpg class="related"><h3 class="m-3"></h3></a></div>'
-            })
+            getJSONData(PRODUCTS_URL).then(function (resultObj) {
+                if (resultObj.status === "ok")
+                    rel = resultObj.data;
+                console.log(obj)
+                obj.relatedProducts.forEach(element => {
+                    showRelated(rel[element])
+                });
+
+            });
+
         }
     });
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            obj = resultObj.data;
-            showComments()
-        }
-    });
+
 
 
     form.onsubmit = (e) => {
@@ -76,10 +88,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function showComments(newComent = null) {
     if (!(newComent === null)) {//Si el parametro esta definido, agrega un comentario
-        obj.push(newComent)
+        comments.push(newComent)
     }
     comentarios.innerHTML = "";//limpia los antiguos comentarios
-    obj.forEach(coment => {
+    comments.forEach(coment => {
         comentarios.innerHTML += '<div class=list-group-item><b>' + coment.user + '</b><span class="star">' + stars(coment.score) + '</span><p class="text-muted">' + coment.dateTime + '</p><p>"' + coment.description + '"</p></div>'
     })//Dibuja todos los comentarios
 }
@@ -102,4 +114,14 @@ function cero(i) { //(Solo por formato) cambia la fecha en caso de que el mes o 
         i = '0' + i;
     }
     return i;
+}
+
+function showRelated(element) {
+    relacionados.innerHTML += `
+    <div class="col-md-4">
+    <a class="card mb-4 shadow-sm custom-card">
+    <img src=` + element.imgSrc + ` class="related" title="` + element.description + `"><h3 class="m-3">` + element.name + `
+    </h3></a>
+    </div>
+             `
 }
