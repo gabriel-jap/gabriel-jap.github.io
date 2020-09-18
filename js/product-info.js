@@ -119,7 +119,7 @@ function cero(i) { //(Solo por formato) cambia la fecha en caso de que el mes o 
 function showRelated(element) {
     relacionados.innerHTML += `
     <div class="col-md-4">
-    <a class="card mb-4 shadow-sm custom-card">
+    <a class="card mb-4 shadow-sm custom-card" href>
     <img src=` + element.imgSrc + ` class="related" title="` + element.description + `"><h3 class="m-3">` + element.name + `
     </h3></a>
     </div>
