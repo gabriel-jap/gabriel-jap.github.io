@@ -8,10 +8,20 @@ const dmEnvio = document.getElementById("dropMenuEnvio")
 const enviotext = document.getElementById("envio")
 const totaltext = document.getElementById("total")
 const compra = document.getElementById("btnbuy")
+const formDir = document.getElementById("formDir")
 
-let sendMode = "5"
+//const dirModal = document.getElementById("dirModal")
+
+let sendMode = 150
 let moneda = []
 let htmltoappend = "";
+let inputDir = false
+let direccion = {
+    pais: '',
+    calle: '',
+    nro: '',
+    esquina: '',
+}
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
@@ -24,11 +34,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 const producto = carrito.articles[index];
                 htmltoappend += `
                 <div class="list-group-item">
-                    <div class="row">
+                    <div class="row" id="product">
                         <div class="col-sm-2">
                             <img src="`+ producto.src + `" height="85">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <p class="font-weight-bolder">`+ producto.name + `</p>
                         </div>
                         <div class="col-sm-2">
@@ -39,6 +49,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
                         </div>
                         <div class="col-sm-2">
                             <p>` + producto.currency + ` </p><p id="totalcant` + index + `" class="text-muted precio">` + producto.unitCost * producto.count + `</p>
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -65,12 +80,27 @@ document.addEventListener("DOMContentLoaded", function (e) {
         updateCart();
     });
 
+    dmEnvio.addEventListener("click",function (e) {
+        if (!(inputDir)) {
+            inputDir= !inputDir
+            $('#dirModal').modal('toggle')
 
+
+        }
+    })
 
     document.getElementById("sSendMode").addEventListener("click", () => porcentaje(5, "sSendMode"));
     document.getElementById("eSendMode").addEventListener("click", () => porcentaje(7, "eSendMode"));
     document.getElementById("pSendMode").addEventListener("click", () => porcentaje(15, "pSendMode"));
 
+    formDir.addEventListener("submit", function (e) {
+        e.preventDefault()
+        direccion.pais = document.getElementById("ctry").value
+        direccion.calle = document.getElementById("calle").value
+        direccion.nro = document.getElementById("dirNro").value
+        direccion.esquina = document.getElementById("dirCor").value
+        $('#dirModal').modal('toggle')
+    })
 });
 
 function updateCart() {
@@ -88,10 +118,12 @@ function updateCart() {
     }
     subTotal.innerText = acc
 
-    envio = acc * sendMode / 100
-    enviotext.innerText = envio
+    if (sendMode<100) {
+        envio = acc * sendMode / 100
+        enviotext.innerText = envio
+        totaltext.innerText = acc + envio
+    }
 
-    totaltext.innerText = acc + envio
 }
 
 function porcentaje(num, elem) {

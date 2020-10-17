@@ -72,7 +72,8 @@
             <tr>
               <th>
                 <div class="btn-group dropup">
-                  <button id="dropMenuEnvio" class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button id="dropMenuEnvio" class="btn btn-primary btn-sm dropdown-toggle" type="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Tipo de envío
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -82,20 +83,163 @@
                   </div>
                 </div>
               </th>
-              <th id="envio">algo</th>
+              <th id="envio">-</th>
             </tr>
             <tr>
               <th>Total</th>
-              <th id="total"></th>
+              <th id="total">-</th>
             </tr>
           </table>
-          <input id="btnbuy" class="btn btn-lg btn-success" type="button" value="Comprar" disabled>
+          <input id="btnbuy" class="btn btn-lg btn-success" type="button" value="Comprar" data-toggle="modal"
+            data-target="#compraModal" disabled>
         </div>
-
-
       </div>
     </div>
 
+    <div class="modal fade" id="dirModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+      aria-labelledby="dirModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="dirModalLabel">Dirección</h4>
+          </div>
+          <form id="formDir" method="GET">
+          <div class="modal-body">
+
+
+            <div class="row">
+              <label class="col-sm-7" for="ctry">País</label>
+              <input class="col-sm-4" type="text" name="country" id="ctry" required>
+            </div>
+            <label for="dir"><strong>Dirección</strong></label>
+            <div id="dir">
+              <div class="row">
+                <label class="col-sm-7" for="calle">Ingrese la calle</label>
+                <input class="col-sm-4" type="text" name="dirCalle" id="calle" required>
+              </div>
+              <div class="row">
+                <label class="col-sm-7" for="dirNro">Ingrese el Número de puerta</label>
+                <input class="col-sm-4" pattern="[0-9]{4}" type="text" name="dirNro" id="dirNro" maxlength="4" required>
+              </div>
+              <div class="row">
+                <label class="col-sm-7" for="dirCor">Ingrese una esquina</label>
+                <input class="col-sm-4" type="text" name="dirCor" id="dirCor" required>
+              </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="compraModal" tabindex="-1" aria-labelledby="compraModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="compraModalLabel">Metodo de pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <p>Seleccione un metodo de pago</p>
+              </div>
+              <div>
+
+                <div class="accordion" id="metodoDePago">
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#credit" aria-expanded="false" aria-controls="credit">
+                          Tarjeta de Credito
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="credit" class="collapse" aria-labelledby="headingTwo" data-parent="#metodoDePago">
+                      <div class="card-body">
+                        <!-- Tarjeta de credito -->
+                        <form action="">
+                          <div class="row">
+                            <label class="col-sm-4" for="owner">Titular de la Tarjeta</label>
+                            <input class="col-sm-4" type="text" name="titular" id="owner" pattern="[A-Za-z]{2,}" required>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-4" for="card">Tipo de Tarjeta</label>
+                            <select class="col-sm-4" name="tipoTarjeta" id="card">
+                              <option value="oca">OCA</option>
+                              <option value="visa">Visa</option>
+                              <option value="mc">Mastercard</option>
+                            </select>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-4" for="nCard">Numero de la tarjeta</label>
+                            <input class="col-sm-4" type="text" name="nCard" id="nCard" pattern="[0-9]{13,18}" required>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-4" for="mEnd">Fecha de Caducidad</label>
+                            <input class="col-sm-4" type="month" name="mEnd" id="mEnd" required>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-4" for="cvv">CVV</label>
+                            <input class="col-sm-4" type="text" name="cvv" id="cvv" maxlength="4" pattern="[0-9]{3,}" required>
+                          </div>
+                          <input type="submit" class="btn btn-primary" value="Comprar">
+
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#bank" aria-expanded="false" aria-controls="bank">
+                          Cuenta Bancaria
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="bank" class="collapse" aria-labelledby="headingOne" data-parent="#metodoDePago">
+                      <div class="card-body">
+                        <!-- UNO Cuenta Bancaria -->
+                        <div>
+                          <div class="row">
+                            <label class="col-sm-4" for="innerbank">Banco:</label>
+                            <p id="innerbank">Mibanco</p>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-4" for="innerNro">Número de cuenta</label>
+                            <p id="innerNro">12345678910</p>
+                          </div>
+                          <div class="row">
+                            <label class="col-sm-4" for="innerName">Beneficiario</label>
+                            <p id="innerName">E-Mercado</p>
+                          </div>
+                          <button class="btn btn-primary" type="submit">Comprar</button>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
   <div id="spinner-wrapper">
