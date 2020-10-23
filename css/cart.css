@@ -5,3 +5,8 @@
 .row input {
     width:inherit;
 }
+
+.noProducts{
+    background-color: indianred;
+
+}
