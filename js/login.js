@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
 
    let user = "";
@@ -10,12 +12,6 @@ user = document.getElementById('textboxEmail').value;
 const password = document.getElementById('textboxPassword').value;
 getJSONData('/auth', {user,password});
 }
-   
-   // var formulario = document.getElementById("form_login");
-   // formulario.addEventListener("submit", function (event) {
-   //    event.preventDefault();//Cortamos el procedimiento usual de un submit
-   //    loginOk();
-   // })
    const getJSONData = function(endpoint, userData){
    let url = `${backUrl}${endpoint}`;
    fetch(url, {
@@ -29,8 +25,9 @@ getJSONData('/auth', {user,password});
    .then(response => {
    console.log('Success:', response)
    localStorage.setItem('token', response.token);
-   localStorage.setItem('user', user);
-   window.location.href = 'https://gabriel-jap.github.io/index.html';
+   const info={name: user,surname: "",age: "",email: user,tel: "",pic: "",}
+   localStorage.setItem('datos', JSON.stringify(info));
+   window.location.href="index.html";
    });
    }
 

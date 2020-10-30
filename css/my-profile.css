@@ -1,0 +1,7 @@
+.myProfile{
+    padding-top: 2rem;
+}
+
+.myProfile > *{
+    margin-bottom: 2rem;
+}
