@@ -117,11 +117,25 @@ function cero(i) { //(Solo por formato) cambia la fecha en caso de que el mes o 
 }
 
 function showRelated(element) {
-    relacionados.innerHTML += `
-    <div class="col-md-4">
-    <a class="card mb-4 shadow-sm custom-card" href>
-    <img src=` + element.imgSrc + ` class="related" title="` + element.description + `"><h3 class="m-3">` + element.name + `
-    </h3></a>
+    relacionados.innerHTML += `<div class="col-md-4">
+    <a href="products.html" class="card mb-4 shadow-sm custom-card">
+    <img class="bd-placeholder-img card-img-top" src="` + element.imgSrc + `">
+    <h3 class="m-3">`+ element.name + `</h3>
+    <div class="card-body">
+        <p class="card-text">` + element.description + `</p>
     </div>
-             `
+    </a>
+</div>
+`
+    // relacionados.innerHTML += `
+    // <div class="col-md-4">
+    // <a class="card mb-4 shadow-sm custom-card" href>
+    // <img src=` + element.imgSrc + ` class="related" title="` + element.description + `"><h3 class="m-3">` + element.name + `
+    // </h3></a>
+    // </div>
+    //          `
+
+    
+
+             
 }
