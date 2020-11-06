@@ -1,7 +1,6 @@
 const CARRITO_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 const cart = document.getElementById("carrito")
 const subTotal = document.getElementById("subTotal")
-const envio = document.getElementById("envio")
 const total = document.getElementById("total")
 const dmEnvio = document.getElementById("dropMenuEnvio")
 const enviotext = document.getElementById("envio")
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     getJSONData(CARRITO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            carrito = resultObj.data;
+            let carrito = resultObj.data;
             for (let index = 0; index < carrito.articles.length; index++) {
                 const producto = carrito.articles[index];
                 let fila = {
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     currency: producto.currency,
                     unitCost: producto.unitCost,
                     count: producto.count,
-                    unitCost: producto.unitCost,
                 }
                 productos.push(fila);
                 
@@ -45,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         updateCart();
     });
 
-    dmEnvio.addEventListener("click",function (e) {
+    dmEnvio.addEventListener("click",function () {
         if (!(inputDir)) {
             inputDir= !inputDir
             $('#dirModal').modal('toggle')
@@ -58,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("eSendMode").addEventListener("click", () => porcentaje(7, "eSendMode"));
     document.getElementById("pSendMode").addEventListener("click", () => porcentaje(15, "pSendMode"));
 
-    formDir.addEventListener("submit", function (e) {
-        e.preventDefault()
+    formDir.addEventListener("submit", function (event) {
+        event.preventDefault()
         direccion.pais = document.getElementById("ctry").value
         direccion.calle = document.getElementById("calle").value
         direccion.nro = document.getElementById("dirNro").value
