@@ -29,19 +29,27 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="bttnuser" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <!-- <img src="img/cat1.jpg" class="user"> -->
-          <p id="username"></p>
-        </button>
+          aria-haspopup="true" aria-expanded="false"></button>
         <div class="dropdown-menu" aria-labelledby="bttnuser">
+          <a class="dropdown-item" href="my-profile.html">
+            <div class="row">
+              <div class="col-md-8 offset-md-3">
+                <img class="user" id="userimage">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8 offset-md-3">
+                <p id="username"></p>
+              </div>
+            </div>
+
+          </a>
+
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" id="logoutButton">Salir</a>
         </div>
       </div>
     </div>
-
-
   </nav>
   <main role="main">
     <section class="jumbotron text-center">

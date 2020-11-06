@@ -40,12 +40,15 @@ var getJSONData = function (url) {
     });
 }
 document.addEventListener("DOMContentLoaded", function (e) {
-  const btnuser = document.getElementById("username");
-  console.log(btnuser);
+  const btnuser = document.getElementById("bttnuser");
+  const username = document.getElementById("username");
   const salida = document.getElementById('logoutButton');
+  const imagen = document.getElementById('userimage');
 
   let user = JSON.parse(localStorage.getItem("datos"))
-  btnuser.innerText=user.name
+  btnuser.innerText = user.name
+  username.innerHTML = user.name
+  imagen.src = user.pic
   salida.onclick = () => {
     console.log("logout")
     localStorage.clear();
