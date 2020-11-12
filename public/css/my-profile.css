@@ -1,0 +1,27 @@
+.myProfile{
+    padding-top: 2rem;
+}
+
+.myProfile > *{
+    margin-bottom: 2rem;
+}
+
+#photoUser{
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#rowimg {
+    position: relative;
+    width: 100%;
+  }
+#rowimg:after{
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }

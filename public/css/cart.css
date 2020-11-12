@@ -1,0 +1,12 @@
+.imgContainer{
+    place-items: center;
+}
+
+.row input {
+    width:inherit;
+}
+
+.noProducts{
+    background-color: indianred;
+
+}

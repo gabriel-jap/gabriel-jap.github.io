@@ -1,0 +1,18 @@
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+}
+
+#userimage {
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    border-radius: 100%;
+    border-style: solid;
+}
+
+#username{
+    place-content: center;
+}
