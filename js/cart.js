@@ -1,4 +1,4 @@
-const CARRITO_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
+const CARRITO_URL = "http://localhost:3000/JSON/cart";
 const cart = document.getElementById("carrito")
 const subTotal = document.getElementById("subTotal")
 const total = document.getElementById("total")
