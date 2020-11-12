@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/myStyles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/product-info.css">
+</head>
+
+<body>
+
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="bttnuser" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu" aria-labelledby="bttnuser">
+          <a class="dropdown-item" href="my-profile.html">
+            <div class="row">
+              <div class="col-md-8 offset-md-3">
+                <img id="userimage" alt="Imagen de Usuario">
+              </div>
+            </div>
+            <p id="username" class="row"></p>
+          </a>
+
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" id="logoutButton">Salir</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container p-5">
+
+    <div>
+      <a id="cat" href="products.html"></a>
+      <p id="prodVend" class="prodVend"></p>
+      <h1 id="productName"></h1>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div id="carouselControls" class="carousel slide" data-ride="carousel">
+            <div id="gallery" class="carousel-inner"></div>
+            <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <p id="productDesc"></p>
+          <h2 id="productCost"></h2>
+        </div>
+      </div>
+
+      <div class="cont-comentario">
+        <h2 class="titulos">Comentarios</h2>
+        <div id="coments"></div>
+        <div class=list-group-item>
+          <form id="form-comment" method="POST" class="form-coment">
+            <h3>Deja tu comentario</h3>
+            <span class="clasificacion">
+              <input type="radio" name="score" id="radio1" value="5" required><label for="radio1">★</label>
+              <input type="radio" name="score" id="radio2" value="4"><label for="radio2">★</label>
+              <input type="radio" name="score" id="radio3" value="3"><label for="radio3">★</label>
+              <input type="radio" name="score" id="radio4" value="2"><label for="radio4">★</label>
+              <input type="radio" name="score" id="radio5" value="1"><label for="radio5">★</label>
+            </span>
+            <textarea id="comentario" name="TextArea" cols="120" rows="3" placeholder="Añada su comentario..."
+              required></textarea>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <h3 class="titulos">Articulos Relacionados</h3>
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <div class="row" id="related"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/product-info.js"></script>
+</body>
+
+</html>
