@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         })//Dibuja todos los comentarios
     }
     function stars(score) {
-        let html;
+        let html  = "";
         for (let index = 0; index < 5; index++) {
             // Genera tantas estrllas como puntuacion tenga el articulo, luego rellena con estrellas vaias hasta llegar a 5
             html += score > index ? '<span class="fa fa-star checked"></span>' : '<span class="fa fa-star"></span>'
