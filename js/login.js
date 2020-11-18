@@ -6,55 +6,52 @@ document.addEventListener("DOMContentLoaded", function (e) {
    const backUrl = 'http://localhost:8080';
    const loginForm = document.getElementById('form_login');
 
-   loginForm.onsubmit = (e) => {
-      e.preventDefault()
-      user = document.getElementById('textboxEmail').value;
-      const password = document.getElementById('textboxPassword').value;
-      getJSONData('/auth', { user, password });
-   }
-
-   // a.onsubmit = (event) => {
-   //    event.preventDefault()
+   // loginForm.onsubmit = (e) => {
+   //    e.preventDefault()
    //    user = document.getElementById('textboxEmail').value;
    //    const password = document.getElementById('textboxPassword').value;
-
-   //    fetch('/', {
-   //       method: 'POST',
-   //       headers: {
-   //           'Content-Type': 'application/json'
-   //       },
-   //       body: JSON.stringify({
-   //           user: {                 
-   //               email: user,
-   //               pw = password
-   //           }
-   //       })
-   //   });
-      // .then(res => res.json()).then(response => {
-      //    console.log(response);
-
-   //     }
-   //     )
+   //    getJSONData('/auth', { user, password });
    // }
 
-   const getJSONData = function (endpoint, userData) {
-      let url = `${backUrl}${endpoint}`;
-      fetch(url, {
+   a.onsubmit = (event) => {
+      event.preventDefault()
+      user = document.getElementById('textboxEmail').value;
+      const password = document.getElementById('textboxPassword').value;
+
+      fetch('http://localhost:3000/users', {
          method: 'POST',
-         body: JSON.stringify(userData),
-         headers: { 'Content-Type': 'application/json' }
-      }).then(res => res.json())
-         .catch(error => {
-            alert('Usuario y/o contraseÃ±a incorrecta')
-         })
-         .then(response => {
-            console.log('Success:', response)
-            localStorage.setItem('token', response.token);
-            const info = { name: user, surname: "", age: "", email: user, tel: "", pic: defaultImg, }
-            localStorage.setItem('datos', JSON.stringify(info));
-            window.location.href = "index.html";
-         });
+         headers: {
+             'Content-Type': 'application/json'
+         },
+         body: {
+            "email": "admin@ceibal.com.uy",
+            "pw": "admin"
+        }
+     }).then(res => res.json()).then(response => {
+         console.log(response);
+
+       }
+       )
    }
+
+   // const getJSONData = function (endpoint, userData) {
+   //    let url = `${backUrl}${endpoint}`;
+   //    fetch(url, {
+   //       method: 'POST',
+   //       body: JSON.stringify(userData),
+   //       headers: { 'Content-Type': 'application/json' }
+   //    }).then(res => res.json())
+   //       .catch(error => {
+   //          alert('Usuario y/o contraseÃ±a incorrecta')
+   //       })
+   //       .then(response => {
+   //          console.log('Success:', response)
+   //          localStorage.setItem('token', response.token);
+   //          const info = { name: user, surname: "", age: "", email: user, tel: "", pic: defaultImg, }
+   //          localStorage.setItem('datos', JSON.stringify(info));
+   //          window.location.href = "index.html";
+   //       });
+   // }
 
 });
 
